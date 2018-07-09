@@ -1,3 +1,4 @@
+language: cpp
 sudo: true
 script:
   - chmod +x ./build-v8.sh
