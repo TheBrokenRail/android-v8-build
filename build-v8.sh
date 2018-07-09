@@ -1,6 +1,7 @@
 #!/bin/bash
 set -e
 
+export DEBIAN_FRONTEND=noninteractive
 apt-get update
 apt-get install --yes git sudo curl python lsb-release
 if [ ! -e v8-dir/.v8-repo-ready ]; then
@@ -25,7 +26,7 @@ if [ ! -e .v8-repo-ready ]; then
     fetch v8
     cd v8
     git checkout -b 6.8 -t branch-heads/6.8
-    printf 'y\n12\n' | ./build/install-build-deps.sh
+    echo 'y' | ./build/install-build-deps.sh
     echo "target_os = ['android']" >> ../.gclient
     gclient sync --nohooks
     cd ../
