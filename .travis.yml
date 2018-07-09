@@ -1,8 +1,13 @@
 language: cpp
+services:
+  - docker
 sudo: true
+before_install:
+  - docker run -d --name ubuntu-latest -v $(pwd) ubuntu:latest tail -f /dev/null
+  - docker ps
 script:
   - chmod +x ./build-v8.sh
-  - ./build-v8.sh
+  - docker exec -t ubuntu-latest ./build-v8.sh
 deploy:
   provider: pages
   skip-cleanup: true
