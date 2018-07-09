@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-sudo apt install git sudo
+apt install git sudo
 if [ ! -e v8-dir/.v8-repo-ready ]; then
     rm -rf v8-dir
 fi
