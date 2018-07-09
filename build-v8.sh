@@ -2,7 +2,7 @@
 set -e
 
 export DEBIAN_FRONTEND=noninteractive DEBCONF_NONINTERACTIVE_SEEN=true
-printf 'tzdata tzdata/Areas select US\ntzdata tzdata/Zones/US select Detroit\n' | debconf-set-selections
+printf 'tzdata tzdata/Areas select America\ntzdata tzdata/Zones/America select Detroit\n' | debconf-set-selections
 apt-get update
 apt-get install --yes git sudo curl python lsb-release
 if [ ! -e v8-dir/.v8-repo-ready ]; then
