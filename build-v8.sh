@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-export DEBIAN_FRONTEND=noninteractive
+dpkg-reconfigure debconf -f noninteractive -p critical
 apt-get update
 apt-get install --yes git sudo curl python lsb-release
 if [ ! -e v8-dir/.v8-repo-ready ]; then
