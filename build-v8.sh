@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-sudo apt install git build-essential
+sudo apt install git sudo
 if [ ! -e v8-dir/.v8-repo-ready ]; then
     rm -rf v8-dir
 fi
@@ -42,7 +42,7 @@ function build {
     fi
     ./tools/dev/v8gen.py $1.release
     GN_EDITOR='echo "No Editor!"' gn args out.gn/$1.release --args='target_os="android" target_cpu="'"$2"'" v8_target_cpu="'"$2"'" is_component_build=false v8_static_library=true v8_use_snapshot=false is_debug=false v8_enable_i18n_support=false v8_monolithic
-=true '"$3"
+=true'"$3"
     ninja -C out.gn/$1.release
     mkdir ../v8-libs/$1
     cp out.gn/$1.release/obj/libv8_monolith.a ../v8-libs/$1
@@ -56,4 +56,4 @@ build ia32 x86 ''
 echo '**** Building for x64 ****'
 build x64 x64 ''
 echo '**** Building for MIPSEL ****'
-build mipsel mipsel 'mips_arch_variant="r2"'
+build mipsel mipsel ' mips_arch_variant="r2"'
