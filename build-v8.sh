@@ -1,10 +1,9 @@
 #!/bin/bash
 set -e
 
-export DEBIAN_FRONTEND=noninteractive DEBCONF_NONINTERACTIVE_SEEN=true
-printf 'tzdata tzdata/Areas select America\ntzdata tzdata/Zones/America select Detroit\n' | debconf-set-selections
+export DEBIAN_FRONTEND=noninteractive
 apt-get update
-apt-get install --yes git sudo curl python lsb-release
+apt-get install --yes git sudo curl python lsb-release tzdata
 if [ ! -e v8-dir/.v8-repo-ready ]; then
     rm -rf v8-dir
 fi
