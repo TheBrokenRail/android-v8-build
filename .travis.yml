@@ -3,7 +3,7 @@ services:
   - docker
 sudo: true
 script:
-  - docker run ubuntu:latest bash -c 'chmod +x ./build-v8.sh; ./build-v8.sh'
+  - docker run ubuntu:latest -v $(pwd):/travis bash -c 'cd /travis; chmod +x ./build-v8.sh; ./build-v8.sh'
 deploy:
   provider: pages
   skip-cleanup: true
