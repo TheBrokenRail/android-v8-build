@@ -41,18 +41,18 @@ function build {
     fi
     ./tools/dev/v8gen.py $1.release
     GN_EDITOR='echo "No Editor!"' gn args out.gn/$1.release --args='target_os="android" target_cpu="'"$2"'" v8_target_cpu="'"$2"'" is_component_build=false v8_static_library=true v8_use_snapshot=false is_debug=false v8_enable_i18n_support=false v8_monolithic
-=true'
+=true '"$3"
     ninja -C out.gn/$1.release
     mkdir ../v8-libs/$1
     cp out.gn/$1.release/obj/libv8_monolith.a ../v8-libs/$1
 }
 echo '**** Building for ARM ****'
-build arm arm
+build arm arm ''
 echo '**** Building for ARM64 ****'
-build arm64 arm64
+build arm64 arm64 ''
 echo '**** Building for x86 ****'
-build ia32 x86
+build ia32 x86 ''
 echo '**** Building for x64 ****'
-build x64 x64
+build x64 x64 ''
 echo '**** Building for MIPSEL ****'
-build mipsel mipsel
+build mipsel mipsel 'mips_arch_variant="r2"'
