@@ -1,3 +1,4 @@
+sudo: true
 script:
   - chmod +x ./build-v8.sh
   - ./build-v8.sh
