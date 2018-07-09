@@ -1,6 +1,7 @@
 #!/bin/bash
 set -e
 
+sudo apt install git build-essential
 if [ ! -e v8-dir/.v8-repo-ready ]; then
     rm -rf v8-dir
 fi
