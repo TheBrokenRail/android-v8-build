@@ -2,7 +2,7 @@
 set -e
 
 apt-get update
-apt-get install --yes git sudo
+apt-get install --yes git sudo curl python2
 if [ ! -e v8-dir/.v8-repo-ready ]; then
     rm -rf v8-dir
 fi
