@@ -1,0 +1,10 @@
+script:
+  - chmod +x ./build-v8.sh
+  - ./build-v8.sh
+deploy:
+  provider: pages
+  skip-cleanup: true
+  github-token: $GITHUB_TOKEN
+  local-dir: v8-dir/v8-libs
+  on:
+    branch: master
