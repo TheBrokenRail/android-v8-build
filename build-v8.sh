@@ -25,7 +25,7 @@ if [ ! -e .v8-repo-ready ]; then
     fetch v8
     cd v8
     git checkout -b 6.8 -t branch-heads/6.8
-    printf 'y\n12' | ./build/install-build-deps.sh
+    printf 'y\n12\n' | ./build/install-build-deps.sh
     echo "target_os = ['android']" >> ../.gclient
     gclient sync --nohooks
     cd ../
