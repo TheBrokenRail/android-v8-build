@@ -2,7 +2,7 @@
 set -e
 
 apt-get update
-apt-get install git sudo
+apt-get install --yes git sudo
 if [ ! -e v8-dir/.v8-repo-ready ]; then
     rm -rf v8-dir
 fi
